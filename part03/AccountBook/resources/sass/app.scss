@@ -36,3 +36,10 @@ $tabs-dark: #111;
 .x-button-back .x-button-label {
   color: #fff;
 }
+
+
+// タブバーのアイコン
+@include pictos-iconmask('list');
+@include pictos-iconmask('compose1');
+@include pictos-iconmask('settings9');
+
