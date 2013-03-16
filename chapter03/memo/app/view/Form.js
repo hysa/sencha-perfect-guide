@@ -11,7 +11,23 @@ Ext.define('Memo.view.Form', {
             {
                 xtype: 'titlebar',
                 title: 'Memo',
-                docked: 'top'
+                docked: 'top',
+                items: [
+                    {
+                        xtype: 'button',
+                        align: 'left',
+                        text: '消去',
+                        ui: 'decline',
+                        action: 'erase'
+                    },
+                    {
+                        xtype: 'button',
+                        align: 'right',
+                        text: '保存',
+                        ui: 'action',
+                        action: 'save'
+                    }
+                ]
             },
             {
                 xtype: 'fieldset',
