@@ -3,7 +3,7 @@ Ext.define('Ab.profile.Phone', {
 
     //define any additional classes your Profile needs here
     config: {
-        views: ['Main'],    // app/view/phone以下を参照
+        views: ['Main', 'Home', 'Form', 'Accounts', 'Setting'],    // app/view/phone以下を参照
         models: [],
         stores: [],
         controllers: []

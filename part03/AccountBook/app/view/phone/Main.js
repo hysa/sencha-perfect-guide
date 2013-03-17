@@ -7,37 +7,26 @@
 Ext.define('Ab.view.phone.Main', {
     extend: 'Ext.tab.Panel',
     xtype: 'phonemain',
+
     requires: [
-        'Ext.TitleBar'
+        'Ab.view.phone.Home',
+        'Ab.view.phone.Form',
+        'Ab.view.phone.Accounts',
+        'Ab.view.phone.Setting'
     ],
 
     config: {
         tabBarPosition: 'bottom',
 
+        layout: {
+            animation: ''      // タブ切り替え時のアニメーションを無効に
+        },
+
         items: [
-            {
-                title: 'ホーム',
-                iconCls: 'home',
-                layout: 'fit',
-
-              items: [{
-                   // ホーム画面のタイトルバー
-                   docked: 'top',
-                   xtype: 'titlebar',
-                   title: 'ホーム'
-              }]
-            },
-            {
-                title: '入力する',
-                iconCls: 'compose1',
-                layout: 'fit',
-
-                items: [{
-                    docked: 'top',
-                    xtype: 'titlebar',
-                    title: '入力する'
-                }]
-            }
+            {xtype: 'phonehome'},
+            {xtype: 'phoneform'},
+            {xtype: 'phoneaccounts'},
+            {xtype: 'phonesetting'}
         ]
     }
 
