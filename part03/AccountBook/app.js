@@ -6,6 +6,10 @@ Ext.Loader.setPath({
 //</debug>
 
 Ext.application({
+    models: ["Account"],
+
+    stores: ['Accounts'],
+
     profiles: ["Tablet","Phone"],
 
     name: 'Ab',

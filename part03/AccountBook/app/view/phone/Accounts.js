@@ -9,7 +9,9 @@ Ext.define('Ab.view.phone.Accounts', {
     xtype: 'phoneaccounts',
 
     requires: [
-        'Ext.TitleBar'
+        'Ext.TitleBar',
+        'Ab.view.account.List',
+        'Ab.view.account.Detail'
     ],
 
     config: {
@@ -17,12 +19,40 @@ Ext.define('Ab.view.phone.Accounts', {
         iconCls: 'list',
         layout: 'fit',
 
-        items: [
-            {
-                docked: 'top',
-                xtype: 'titlebar',
-                title: '履歴'
-            }
-        ]
+        items: {
+            xtype: 'container',
+            itemId: 'accountPage',
+            layout: 'card',
+            items: [
+                {
+                    itemId: 'accountList',
+                    layout: 'fit',
+                    items: [
+                        {
+                            docked: 'top',
+                            xtype: 'titlebar',
+                            title: '一覧'
+                        },
+                        {
+                            xtype: 'accountlist'
+                        }
+                    ]
+                },
+                {
+                    itemId: 'accountdetail',
+                    layout: 'fit',
+                    items: [
+                        {
+                            docked: 'top',
+                            xtype: 'titlebar',
+                            title: '履歴'
+                        },
+                        {
+                            xtype: 'accountdetail'
+                        }
+                    ]
+                }
+            ]
+        }
     }
 });
