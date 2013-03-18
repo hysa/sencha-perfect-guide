@@ -39,16 +39,34 @@ Ext.define('Ab.view.phone.Accounts', {
                     ]
                 },
                 {
-                    itemId: 'accountdetail',
+                    itemId: 'accountDetail',
                     layout: 'fit',
                     items: [
                         {
                             docked: 'top',
                             xtype: 'titlebar',
-                            title: '履歴'
+                            title: '履歴',
+                            items: [
+                                {
+                                    xtype: 'button',
+                                    ui: 'back',
+                                    text: '戻る',
+                                    itemId: 'backToListButton'
+                                }
+                            ]
                         },
                         {
                             xtype: 'accountdetail'
+                        }
+                    ],
+                    listeners: [
+                        {
+                            delegate: '#backToListButton',
+                            event: 'tap',
+                            fn: function() {
+                                console.log('back to list listeners');
+                                this.fireEvent('backtolist');
+                            }
                         }
                     ]
                 }
