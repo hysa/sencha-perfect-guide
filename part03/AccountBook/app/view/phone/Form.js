@@ -9,7 +9,8 @@ Ext.define('Ab.view.phone.Form', {
     xtype: 'phoneform',
 
     requires: [
-        'Ext.TitleBar'
+        'Ext.TitleBar',
+        'Ab.view.account.Form'
     ],
 
     config: {
@@ -22,6 +23,9 @@ Ext.define('Ab.view.phone.Form', {
                 docked: 'top',
                 xtype: 'titlebar',
                 title: '入力する'
+            },
+            {
+                xtype: 'accountform'
             }
         ]
     }
