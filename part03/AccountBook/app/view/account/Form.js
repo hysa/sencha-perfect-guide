@@ -63,12 +63,23 @@ Ext.define('Ab.view.account.Form', {
                     width: '80%',
                     minWidth: '200px',
                     handler: function () {
-                        var form = this.up('accountform');
-                        form.fireEvent('saverecord', form.getRecord(), form.getValue());
+                        var form = this.up('accountform'); // this.upは上位コンポーネントを検索するメソッド
+                        form.fireEvent('saverecord', form.getRecord(), form.getValues());
                     }
                 }
             }
 
         ]
+    },
+
+    setup: function() {
+        var now = new Date();
+        var record = Ext.create('Ab.model.Account', {
+            account: '0',
+            category: '10',
+            recorded: now,
+            memo: ''
+        });
+        this.setRecord(record);
     }
 });

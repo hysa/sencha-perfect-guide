@@ -27,6 +27,13 @@ Ext.define('Ab.view.phone.Form', {
             {
                 xtype: 'accountform'
             }
-        ]
+        ],
+
+        listeners: [{
+            event: 'activate',
+            fn: function() {
+                this.down('accountform').setup();  // this.downは下位コンポーネントを検索するメソッド
+            }
+        }]
     }
 });
