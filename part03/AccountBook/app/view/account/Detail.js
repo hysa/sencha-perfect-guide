@@ -8,6 +8,11 @@ Ext.define('Ab.view.account.Detail', {
     extend: 'Ext.Container',
     xtype: 'accountdetail',
 
+    requires: [
+        // ボタンのポップアップ (ref. http://docs.sencha.com/touch/2-2/#!/api/Ext.ActionSheet)
+        'Ext.ActionSheet'
+    ],
+
     config: {
         tpl: [
             '<div>{recorded}</div>',
@@ -15,5 +20,49 @@ Ext.define('Ab.view.account.Detail', {
             '<div>{account}</div>',
             '<div>{memo}</div>'
         ]
+    },
+
+    constructor: function(config) {
+        var self = this;
+        self.callParent(arguments);
+
+        self.actionSheet = Ext.create('Ext.ActionSheet', {
+            hidden: true,
+            itemId: 'actionSheet',
+            items: [
+                {
+                    text: '編集',
+                    handler: function() {
+                        self.hideActionSheet();
+                        self.fireEvent('showeditform', self.getRecord());
+                    }
+                },
+                {
+                    text: '削除',
+                    ui: 'decline',
+                    handler: function() {
+                        self.hideActionSheet();
+                        self.fireEvent('showdeleteconfirm', self.getRecord());
+                    }
+                },
+                {
+                    text: 'キャンセル',
+                    ui: 'confirm',
+                    handler: function() {
+                        self.hideActionSheet();
+                    }
+                }
+            ]
+        });
+        Ext.Viewport.add(self.actionSheet);
+
+    },
+
+    showActionSheet: function() {
+        this.actionSheet.show();
+    },
+
+    hideActionSheet: function() {
+        this.actionSheet.hide();
     }
 });
