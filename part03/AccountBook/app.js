@@ -6,7 +6,7 @@ Ext.Loader.setPath({
 //</debug>
 
 Ext.application({
-    controllers: ["Accounts"],
+    controllers: [],
 
     models: ["Account"],
 

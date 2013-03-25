@@ -5,21 +5,27 @@
  * Date: 2013/03/18
  */
 Ext.define('Ab.view.account.Detail', {
-    extend: 'Ext.Container',
+    extend: 'Ext.form.Panel',
     xtype: 'accountdetail',
 
     requires: [
         // ボタンのポップアップ (ref. http://docs.sencha.com/touch/2-2/#!/api/Ext.ActionSheet)
-        'Ext.ActionSheet'
+        'Ext.ActionSheet',
+        'Ab.view.account.FieldSet'
     ],
 
     config: {
-        tpl: [
-            '<div>{recorded}</div>',
-            '<div>{category}</div>',
-            '<div>{account}</div>',
-            '<div>{memo}</div>'
-        ]
+        items: [{
+            xtype: 'accountfieldset',
+            defaults: {
+                disabled: true,
+                disabledCls: null,
+                component: {
+                    disabled: true,
+                    disabledCls: null
+                }
+            }
+        }]
     },
 
     constructor: function(config) {

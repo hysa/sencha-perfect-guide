@@ -6,7 +6,7 @@ Ext.define('Ab.profile.Phone', {
         views: ['Main'],    // app/view/phone以下を参照
         models: [],
         stores: [],
-        controllers: []
+        controllers: ['Accounts']
     },
 
     //this profile will be activated if we detect we're running on a Phone
